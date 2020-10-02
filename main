@@ -31,4 +31,28 @@ debug.setupvalue(v,index,value)
 end
 end 
 end
+function general.workspace()
+   return game:GetService("Workspace")
+end
+function general.players()
+    return game:GetService("Players")
+ end
+ function general.lighting()
+    return game:GetService("Lighting")
+ end
+ function general.http()
+    return game:GetService("HttpService")
+ end
+ function general.coregui()
+     return game:GetService("CoreGui")
+  end
+  function general.replicated()
+     return game:GetService("ReplicatedStorage")
+  end
+  function general.uis()
+    return game:GetService("UserInputService")
+ end
+ function general.player()
+return game:GetService("Players").LocalPlayer
+ end
 return general
