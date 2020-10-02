@@ -1,6 +1,6 @@
 --in executor, put
 
-local general = loadstring(path)()
+local general = loadstring(game:HttpGet('https://raw.githubusercontent.com/ProjectCryptid/generallib/main/main',true))()
 
 --and then you can use by doing
 
