@@ -115,6 +115,7 @@ function console:init()
 		end
 	end
 	script.Parent.MouseButton1Click:Connect(clear)
+	end
     coroutine.wrap(DCWSF_fake_script)()
     local function QAFODT_fake_script() -- main.dragScript 
     local script = Instance.new('Script', main)
@@ -130,7 +131,6 @@ function console:init()
     script.Parent.MouseButton1Click:Connect(open)
     end
     coroutine.wrap(HBUA_fake_script)()
-end
 end
 function console:destruct()
     local thing = general.fifich(general.coregui(),"consoleGui")
