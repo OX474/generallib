@@ -1,3 +1,5 @@
+FOR GENERAL LIB
+
 --in executor, put
 
 local general = loadstring(game:HttpGet('https://raw.githubusercontent.com/ProjectCryptid/generallib/main/main',true))()
@@ -8,3 +10,15 @@ local general = loadstring(game:HttpGet('https://raw.githubusercontent.com/Proje
 for i,v in pairs(general.get_players()) do
 print(v)
 end
+
+FOR CONSOLE
+
+--in executor, put
+
+local console = loadstring(game:HttpGet('path',true))()
+
+--and then you can use by doing
+
+--(example function)
+console:init()
+console.print("lol")
