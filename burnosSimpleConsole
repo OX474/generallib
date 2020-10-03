@@ -115,7 +115,6 @@ clearButton.TextSize = 14.000
 		end
 	end
 	script.Parent.MouseButton1Click:Connect(clear)
-end
 coroutine.wrap(DCWSF_fake_script)()
     local function QAFODT_fake_script() -- main.dragScript 
     local script = Instance.new('Script', main)
@@ -131,6 +130,7 @@ coroutine.wrap(DCWSF_fake_script)()
     script.Parent.MouseButton1Click:Connect(open)
     end
     coroutine.wrap(HBUA_fake_script)()
+end
 end
 function console:destruct()
     local thing = general.fifich(general.coregui(),"consoleGui")
@@ -189,4 +189,5 @@ function console.info(text)
     info.TextXAlignment = Enum.TextXAlignment.Left
     info.Text = "-- "..text
 end
-return console
+
+console:init()
