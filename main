@@ -55,4 +55,29 @@ function general.players()
  function general.player()
 return game:GetService("Players").LocalPlayer
  end
+ function general.character()
+return game:GetService("Players").LocalPlayer.Character
+end
+ function general.get_children(obj)
+ return obj:GetChildren()
+end
+function general.get_descendants(obj)
+   return obj:GetDescendants()
+  end
+  function general.fifich(obj,item)
+     return obj:FindFirstChild(item)
+  end
+  function general.fifide(obj,item)
+     for i,v in pairs(item:GetDescendants()) do
+        if v.Name == item then
+           return v
+        end
+     end
+  end
+  function general.notify(text,time)
+      local hint = Instance.new("Hint",game:GetService("CoreGui"))
+      hint.Text = text
+      wait(time)
+      hint:Destroy()
+  end
 return general
