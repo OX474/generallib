@@ -2,7 +2,6 @@ local general = loadstring(game:HttpGet('https://raw.githubusercontent.com/Proje
 local console = {}
 function console:init()
     if getgenv().burnoconsole then return end
-    
     getgenv().burnoconsole = true
     local consoleGui = Instance.new("ScreenGui")
     local main = Instance.new("Frame")
@@ -148,7 +147,7 @@ function console.error(text)
     error.TextColor3 = Color3.fromRGB(255, 0, 0)
     error.TextSize = 14.000
     error.TextXAlignment = Enum.TextXAlignment.Left
-    error.Text = "-- "..text
+    error.Text = "[ERROR]-- "..text
 end
 function console.print(text)
     local print = Instance.new("TextLabel")
@@ -161,7 +160,7 @@ function console.print(text)
     print.TextColor3 = Color3.fromRGB(255, 255, 255)
     print.TextSize = 14.000
     print.TextXAlignment = Enum.TextXAlignment.Left
-    print.Text = "-- "..text
+    print.Text = "[PRINT]-- "..text
 end
 function console.warn(text)
     local warn = Instance.new("TextLabel")
@@ -174,7 +173,7 @@ function console.warn(text)
     warn.TextColor3 = Color3.fromRGB(255, 170, 0)
     warn.TextSize = 14.000
     warn.TextXAlignment = Enum.TextXAlignment.Left
-    warn.Text = "-- "..text
+    warn.Text = "[WARN]-- "..text
 end
 function console.info(text)
     local info = Instance.new("TextLabel")
@@ -187,6 +186,6 @@ function console.info(text)
     info.TextColor3 = Color3.fromRGB(0, 170, 255)
     info.TextSize = 14.000
     info.TextXAlignment = Enum.TextXAlignment.Left
-    info.Text = "-- "..text
+    info.Text = "[INFO]-- "..text
 end
 return console
