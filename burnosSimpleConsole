@@ -6,7 +6,7 @@ function console:init(settings)
     name = "burno's console";
     clear = true;
     close = true;
-    drag = true'
+    drag = true;
     pos = UDim2.new(0.5,-224.5,0.5,-127.5);
     }
     settings.name = settings.name or defaultSettings.name
