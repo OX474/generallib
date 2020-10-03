@@ -1,8 +1,11 @@
 general = {}
 function general.check_property(obj,prop)
+   obj = obj or nil
+   prop = prop or nil
 return pcall(function() return obj[prop] end)
 end
 function general.get_position(obj)
+   obj = obj or nil
    if obj:IsA("Part") then
       return obj.Position
    end
@@ -25,6 +28,9 @@ function general.get_player_characters()
    return characters 
 end
 function general.set_upvalue(func,index,value)
+   func = func or nil
+   index = index or 1
+   value = value or nil
 for i,v in pairs(getgc(false)) do
 if debug.getinfo(v).name == func then
 debug.setupvalue(v,index,value)
@@ -59,15 +65,21 @@ return game:GetService("Players").LocalPlayer
 return game:GetService("Players").LocalPlayer.Character
 end
  function general.get_children(obj)
+   obj = obj or nil
  return obj:GetChildren()
 end
 function general.get_descendants(obj)
+   obj = obj or nil
    return obj:GetDescendants()
   end
   function general.fifich(obj,item)
+   obj = obj or nil
+   item = item or nil
      return obj:FindFirstChild(item)
   end
   function general.fifide(obj,item)
+   obj = obj or nil
+   item = item or nil
      for i,v in pairs(item:GetDescendants()) do
         if v.Name == item then
            return v
@@ -75,6 +87,8 @@ function general.get_descendants(obj)
      end
   end
   function general.notify(text,time)
+   text = text or ""
+   time = time or 1
       local hint = Instance.new("Hint",game:GetService("CoreGui"))
       hint.Text = text
       wait(time)
