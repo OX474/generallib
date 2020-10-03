@@ -1,11 +1,6 @@
 local general = loadstring(game:HttpGet('https://raw.githubusercontent.com/ProjectCryptid/generallib/main/main',true))()
 local console = {}
 function console:init(name,clear,close,drag,pos)
-    name = name or "burno's console"
-    clear = clear or true
-    close = close or true
-    drag = drag or true
-    pos = pos or UDim2.new(0.5,0,0.5,0)
     if getgenv().burnoconsole then return end
     
     getgenv().burnoconsole = true
