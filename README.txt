@@ -15,7 +15,7 @@ FOR CONSOLE
 
 --in executor, put
 
-local console = loadstring(game:HttpGet('path',true))()
+local console = loadstring(game:HttpGet('https://raw.githubusercontent.com/ProjectCryptid/generallib/main/burnosSimpleConsole',true))()
 
 --and then you can use by doing
 
