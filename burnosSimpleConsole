@@ -189,4 +189,4 @@ function console.info(text)
     info.TextXAlignment = Enum.TextXAlignment.Left
     info.Text = "-- "..text
 end
-return console()
+return console
