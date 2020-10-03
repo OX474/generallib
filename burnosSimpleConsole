@@ -1,7 +1,8 @@
 local general = loadstring(game:HttpGet('https://raw.githubusercontent.com/ProjectCryptid/generallib/main/main',true))()
 local console = {}
-function console:init()
+function console:init(clear,close)
     if getgenv().burnoconsole then return end
+    
     getgenv().burnoconsole = true
     local consoleGui = Instance.new("ScreenGui")
     local main = Instance.new("Frame")
@@ -54,17 +55,19 @@ function console:init()
     exitButton.Text = "X"
     exitButton.TextColor3 = Color3.fromRGB(200, 0, 0)
     exitButton.TextSize = 14.000
+    exitButton.Visible = close
     clearButton.Name = "clearButton"
-    clearButton.Parent = main
-    clearButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    clearButton.BackgroundTransparency = 1.000
-    clearButton.BorderSizePixel = 0
-    clearButton.Position = UDim2.new(0.777282834, 0, 0, 0)
-    clearButton.Size = UDim2.new(0, 80, 0, 20)
-    clearButton.Font = Enum.Font.SourceSans
-    clearButton.Text = "clear"
-    clearButton.TextColor3 = Color3.fromRGB(50, 50, 50)
-    clearButton.TextSize = 14.000
+clearButton.Parent = main
+clearButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clearButton.BackgroundTransparency = 1.000
+clearButton.BorderSizePixel = 0
+clearButton.Position = UDim2.new(0.777282834, 0, 0, 0)
+clearButton.Size = UDim2.new(0, 80, 0, 20)
+clearButton.Font = Enum.Font.SourceSans
+clearButton.Text = "clear"
+clearButton.TextColor3 = Color3.fromRGB(50, 50, 50)
+clearButton.TextSize = 14.000
+clearButton.Visible = clear
     openFrame.Name = "openFrame"
     openFrame.Parent = consoleGui
     openFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
@@ -114,8 +117,8 @@ function console:init()
 		end
 	end
 	script.Parent.MouseButton1Click:Connect(clear)
-	end
-    coroutine.wrap(DCWSF_fake_script)()
+end
+coroutine.wrap(DCWSF_fake_script)()
     local function QAFODT_fake_script() -- main.dragScript 
     local script = Instance.new('Script', main)
     script.Parent.Draggable = true
@@ -147,7 +150,7 @@ function console.error(text)
     error.TextColor3 = Color3.fromRGB(255, 0, 0)
     error.TextSize = 14.000
     error.TextXAlignment = Enum.TextXAlignment.Left
-    error.Text = "[ERROR]-- "..text
+    error.Text = "-- "..text
 end
 function console.print(text)
     local print = Instance.new("TextLabel")
@@ -160,7 +163,7 @@ function console.print(text)
     print.TextColor3 = Color3.fromRGB(255, 255, 255)
     print.TextSize = 14.000
     print.TextXAlignment = Enum.TextXAlignment.Left
-    print.Text = "[PRINT]-- "..text
+    print.Text = "-- "..text
 end
 function console.warn(text)
     local warn = Instance.new("TextLabel")
@@ -173,7 +176,7 @@ function console.warn(text)
     warn.TextColor3 = Color3.fromRGB(255, 170, 0)
     warn.TextSize = 14.000
     warn.TextXAlignment = Enum.TextXAlignment.Left
-    warn.Text = "[WARN]-- "..text
+    warn.Text = "-- "..text
 end
 function console.info(text)
     local info = Instance.new("TextLabel")
@@ -186,6 +189,6 @@ function console.info(text)
     info.TextColor3 = Color3.fromRGB(0, 170, 255)
     info.TextSize = 14.000
     info.TextXAlignment = Enum.TextXAlignment.Left
-    info.Text = "[INFO]-- "..text
+    info.Text = "-- "..text
 end
 return console
