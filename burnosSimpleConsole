@@ -1,6 +1,6 @@
 local general = loadstring(game:HttpGet('https://raw.githubusercontent.com/ProjectCryptid/generallib/main/main',true))()
 local console = {}
-function console:init(name,clear,close,drag,pos)
+function console:init(settings)
     if getgenv().burnoconsole then return end
     local defaultSettings = {
     name = "burno's console";
@@ -9,11 +9,11 @@ function console:init(name,clear,close,drag,pos)
     drag = true'
     pos = UDim2.new(0.5,-224.5,0.5,-127.5);
     }
-    name = name or defaultSettings.name
-    clear = clear or defaultSettings.clear
-    close = close or defaultSettings.close
-    drag = drag or defaultSettings.drag
-    pos = pos or defaultSettings.pos
+    settings.name = settings.name or defaultSettings.name
+    settings.clear = settings.clear or defaultSettings.clear
+    settings.close = settings.close or defaultSettings.close
+    settings.drag = settings.drag or defaultSettings.drag
+    settings.pos = settings.pos or defaultSettings.pos
     
     getgenv().burnoconsole = true
     local consoleGui = Instance.new("ScreenGui")
@@ -35,7 +35,7 @@ function console:init(name,clear,close,drag,pos)
     main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
     main.BackgroundTransparency = 0.100
     main.BorderSizePixel = 0
-    main.Position = pos
+    main.Position = settings.pos
     main.Size = UDim2.new(0, 449, 0, 255)
     title.Name = "title"
     title.Parent = main
@@ -44,7 +44,7 @@ function console:init(name,clear,close,drag,pos)
     title.BorderSizePixel = 0
     title.Size = UDim2.new(0, 449, 0, 20)
     title.Font = Enum.Font.SourceSans
-    title.Text = name
+    title.Text = settings.name
     title.TextColor3 = Color3.fromRGB(0, 0, 0)
     title.TextSize = 14.000
     mainScroll.Name = "mainScroll"
@@ -67,7 +67,7 @@ function console:init(name,clear,close,drag,pos)
     exitButton.Text = "X"
     exitButton.TextColor3 = Color3.fromRGB(200, 0, 0)
     exitButton.TextSize = 14.000
-    exitButton.Visible = close
+    exitButton.Visible = settings.close
     clearButton.Name = "clearButton"
 clearButton.Parent = main
 clearButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -79,7 +79,7 @@ clearButton.Font = Enum.Font.SourceSans
 clearButton.Text = "clear"
 clearButton.TextColor3 = Color3.fromRGB(50, 50, 50)
 clearButton.TextSize = 14.000
-clearButton.Visible = clear
+clearButton.Visible = settings.clear
     openFrame.Name = "openFrame"
     openFrame.Parent = consoleGui
     openFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
@@ -133,7 +133,7 @@ end
 coroutine.wrap(DCWSF_fake_script)()
     local function QAFODT_fake_script() -- main.dragScript 
     local script = Instance.new('Script', main)
-    script.Parent.Draggable = drag
+    script.Parent.Draggable = settings.drag
     end
     coroutine.wrap(QAFODT_fake_script)()
     local function HBUA_fake_script() -- openButton.openScript 
