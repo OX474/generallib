@@ -2,12 +2,18 @@ local general = loadstring(game:HttpGet('https://raw.githubusercontent.com/Proje
 local console = {}
 function console:init(name,clear,close,drag,pos)
     if getgenv().burnoconsole then return end
-    
-    name = name or "burno's console";
-    clear = clear or true;
-    close = close or true;
-    drag = drag or true;
-    pos = pos or UDim2.new(0.5,-224.5,0.5,-127.5);
+    local defaultSettings = {
+    name = "burno's console";
+    clear = true;
+    close = true;
+    drag = true'
+    pos = UDim2.new(0.5,-224.5,0.5,-127.5);
+    }
+    name = name or defaultSettings.name
+    clear = clear or defaultSettings.clear
+    close = close or defaultSettings.close
+    drag = drag or defaultSettings.drag
+    pos = pos or defaultSettings.pos
     
     getgenv().burnoconsole = true
     local consoleGui = Instance.new("ScreenGui")
