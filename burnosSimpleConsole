@@ -1,6 +1,9 @@
 local general = loadstring(game:HttpGet('https://raw.githubusercontent.com/ProjectCryptid/generallib/main/main',true))()
 local console = {}
-function console:init(clear,close)
+function console:init(name,clear,close)
+    name = name or "burno's console"
+    clear = clear or true
+    close = close or true
     if getgenv().burnoconsole then return end
     
     getgenv().burnoconsole = true
@@ -32,7 +35,7 @@ function console:init(clear,close)
     title.BorderSizePixel = 0
     title.Size = UDim2.new(0, 449, 0, 20)
     title.Font = Enum.Font.SourceSans
-    title.Text = "burno's console"
+    title.Text = name
     title.TextColor3 = Color3.fromRGB(0, 0, 0)
     title.TextSize = 14.000
     mainScroll.Name = "mainScroll"
@@ -140,6 +143,7 @@ function console:destruct()
     thing:Destroy()
 end
 function console.error(text)
+    text = text or "nil"
     local error = Instance.new("TextLabel")
     error.Name = "error"
     error.Parent = general.coregui().consoleGui.main.mainScroll
@@ -153,6 +157,7 @@ function console.error(text)
     error.Text = "-- "..text
 end
 function console.print(text)
+    text = text or "nil"
     local print = Instance.new("TextLabel")
     print.Name = "print"
     print.Parent = general.coregui().consoleGui.main.mainScroll
@@ -166,6 +171,7 @@ function console.print(text)
     print.Text = "-- "..text
 end
 function console.warn(text)
+    text = text or "nil"
     local warn = Instance.new("TextLabel")
     warn.Name = "warn"
     warn.Parent = general.coregui().consoleGui.main.mainScroll
@@ -179,6 +185,7 @@ function console.warn(text)
     warn.Text = "-- "..text
 end
 function console.info(text)
+    text = text or "nil"
     local info = Instance.new("TextLabel")
     info.Name = "info"
     info.Parent = general.coregui().consoleGui.main.mainScroll
