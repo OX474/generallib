@@ -58,6 +58,9 @@ function general.players()
   function general.uis()
     return game:GetService("UserInputService")
  end
+ function general.replicatedfi()
+return game:GetService("ReplicatedFirst")
+end
  function general.player()
 return game:GetService("Players").LocalPlayer
  end
@@ -105,7 +108,8 @@ function general.get_descendants(obj)
      warn("lighting(nil)")
      warn("http(nil)")
      warn("coregui(nil)")
-     warn("replicated(nil)")
+     warn("replicatedst(nil)")
+     warn("replicatedfi(nil)")
      warn("uis(nil)")
      warn("player(nil)")
      warn("character(nil)")
