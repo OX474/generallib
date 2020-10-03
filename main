@@ -118,5 +118,6 @@ function general.get_descendants(obj)
      warn("fifich(<instance> path,<instance> string)")
      warn("fifide(<instance> path,<instance> string)")
      warn("notify(<text> string,<time> int)")
+     warn("commands(nil)")
   end
 return general
