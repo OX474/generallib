@@ -9,11 +9,31 @@ function console:init(settings)
     drag = true;
     pos = UDim2.new(0.5,-224.5,0.5,-127.5);
     }
-    settings.name = settings.name or defaultSettings.name
-    settings.clear = settings.clear or defaultSettings.clear
-    settings.close = settings.close or defaultSettings.close
-    settings.drag = settings.drag or defaultSettings.drag
-    settings.pos = settings.pos or defaultSettings.pos
+    if settings.name ~= nil then
+       settings.name = settings.name 
+    else
+       settings.name = defaultSettings.name 
+    end
+    if settings.clear ~= nil then
+       settings.clear = settings.clear 
+    else
+       settings.clear= defaultSettings.clear 
+    end
+    if settings.close ~= nil then
+       settings.close = settings.close
+    else
+       settings.close = defaultSettings.close
+    end
+    if settings.drag ~= nil then
+       settings.drag = settings.drag
+    else
+       settings.drag = defaultSettings.drag
+    end
+    if settings.pos ~= nil then
+       settings.pos = settings.pos
+    else
+       settings.pos = defaultSettings.pos 
+    end
     
     getgenv().burnoconsole = true
     local consoleGui = Instance.new("ScreenGui")
