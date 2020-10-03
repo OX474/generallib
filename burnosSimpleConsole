@@ -1,0 +1,192 @@
+local general = loadstring(game:HttpGet('https://raw.githubusercontent.com/ProjectCryptid/generallib/main/main',true))()
+local console = {}
+function console:init()
+    if getgenv().burnoconsole then return end
+    
+    getgenv().burnoconsole = true
+    local consoleGui = Instance.new("ScreenGui")
+    local main = Instance.new("Frame")
+    local title = Instance.new("TextLabel")
+    local mainScroll = Instance.new("ScrollingFrame")
+    local UIListLayout = Instance.new("UIListLayout")
+    local exitButton = Instance.new("TextButton")
+    local clearButton = Instance.new("TextButton")
+    local openFrame = Instance.new("Frame")
+    local openButton = Instance.new("TextButton")
+    consoleGui.Name = "consoleGui"
+    consoleGui.Parent = general.coregui()
+    consoleGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    consoleGui.ResetOnSpawn = false
+    main.Name = "main"
+    main.Parent = consoleGui
+    main.Active = true
+    main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    main.BackgroundTransparency = 0.100
+    main.BorderSizePixel = 0
+    main.Position = UDim2.new(0.510250568, 0, 0.298594862, 0)
+    main.Size = UDim2.new(0, 449, 0, 255)
+    title.Name = "title"
+    title.Parent = main
+    title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    title.BackgroundTransparency = 0.400
+    title.BorderSizePixel = 0
+    title.Size = UDim2.new(0, 449, 0, 20)
+    title.Font = Enum.Font.SourceSans
+    title.Text = "burno's console"
+    title.TextColor3 = Color3.fromRGB(0, 0, 0)
+    title.TextSize = 14.000
+    mainScroll.Name = "mainScroll"
+    mainScroll.Parent = main
+    mainScroll.Active = true
+    mainScroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    mainScroll.BackgroundTransparency = 1.000
+    mainScroll.Position = UDim2.new(0.0178173725, 0, 0.0784313753, 0)
+    mainScroll.Size = UDim2.new(0, 441, 0, 235)
+    mainScroll.CanvasSize = UDim2.new(0, 0, 4, 0)
+    UIListLayout.Parent = mainScroll
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    exitButton.Name = "exitButton"
+    exitButton.Parent = main
+    exitButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    exitButton.BackgroundTransparency = 1.000
+    exitButton.Position = UDim2.new(0.955456555, 0, 0, 0)
+    exitButton.Size = UDim2.new(0, 20, 0, 20)
+    exitButton.Font = Enum.Font.SourceSans
+    exitButton.Text = "X"
+    exitButton.TextColor3 = Color3.fromRGB(200, 0, 0)
+    exitButton.TextSize = 14.000
+    clearButton.Name = "clearButton"
+clearButton.Parent = main
+clearButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clearButton.BackgroundTransparency = 1.000
+clearButton.BorderSizePixel = 0
+clearButton.Position = UDim2.new(0.777282834, 0, 0, 0)
+clearButton.Size = UDim2.new(0, 80, 0, 20)
+clearButton.Font = Enum.Font.SourceSans
+clearButton.Text = "clear"
+clearButton.TextColor3 = Color3.fromRGB(50, 50, 50)
+clearButton.TextSize = 14.000
+    openFrame.Name = "openFrame"
+    openFrame.Parent = consoleGui
+    openFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    openFrame.BackgroundTransparency = 0.100
+    openFrame.BorderSizePixel = 0
+    openFrame.Position = UDim2.new(0.461655289, 0, 0.964871228, 0)
+    openFrame.Size = UDim2.new(0, 100, 0, 30)
+    openFrame.Visible = false
+    openButton.Name = "openButton"
+    openButton.Parent = openFrame
+    openButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    openButton.BackgroundTransparency = 0.400
+    openButton.BorderSizePixel = 0
+    openButton.Size = UDim2.new(1, 0, 1, 0)
+    openButton.Font = Enum.Font.SourceSans
+    openButton.Text = "open"
+    openButton.TextColor3 = Color3.fromRGB(2, 2, 2)
+    openButton.TextSize = 14.000
+    local function MJZZHCY_fake_script() -- mainScroll.scalingScript 
+    local script = Instance.new('Script', mainScroll)
+    while true do
+    local frame=script.Parent
+    local listlayout=script.Parent.UIListLayout
+    local contentsize=listlayout.AbsoluteContentSize
+    frame.CanvasSize=UDim2.new(0,contentsize.X,0,contentsize.Y)
+    wait()
+    end
+    end
+    coroutine.wrap(MJZZHCY_fake_script)()
+    local function TCOCUYO_fake_script() -- exitButton.exitScript 
+    local script = Instance.new('Script', exitButton)
+    function exit()
+    script.Parent.Parent.Visible = false
+    script.Parent.Parent.Parent.openFrame.Visible = true
+    end
+    script.Parent.MouseButton1Click:Connect(exit)
+    end
+    coroutine.wrap(TCOCUYO_fake_script)()
+    local function DCWSF_fake_script() -- clearButton.clearScript 
+	local script = Instance.new('Script', clearButton)
+
+	function clear()
+		for i,v in ipairs(script.Parent.Parent.mainScroll:GetChildren()) do
+			if v.ClassName ~= "Script" and v.ClassName ~= "UIListLayout" then
+				v:Destroy()
+			end
+		end
+	end
+	script.Parent.MouseButton1Click:Connect(clear)
+end
+coroutine.wrap(DCWSF_fake_script)()
+    local function QAFODT_fake_script() -- main.dragScript 
+    local script = Instance.new('Script', main)
+    script.Parent.Draggable = true
+    end
+    coroutine.wrap(QAFODT_fake_script)()
+    local function HBUA_fake_script() -- openButton.openScript 
+    local script = Instance.new('Script', openButton)
+    function open()
+    script.Parent.Parent.Visible = false
+    script.Parent.Parent.Parent.main.Visible = true
+    end
+    script.Parent.MouseButton1Click:Connect(open)
+    end
+    coroutine.wrap(HBUA_fake_script)()
+end
+function console:destruct()
+    local thing = general.fifich(general.coregui(),"consoleGui")
+    getgenv().burnoconsole = false
+    thing:Destroy()
+end
+function console.error(text)
+    local error = Instance.new("TextLabel")
+    error.Name = "error"
+    error.Parent = general.coregui().consoleGui.main.mainScroll
+    error.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    error.BackgroundTransparency = 1.000
+    error.Size = UDim2.new(0, 300, 0, 20)
+    error.Font = Enum.Font.SourceSans
+    error.TextColor3 = Color3.fromRGB(255, 0, 0)
+    error.TextSize = 14.000
+    error.TextXAlignment = Enum.TextXAlignment.Left
+    error.Text = "-- "..text
+end
+function console.print(text)
+    local print = Instance.new("TextLabel")
+    print.Name = "print"
+    print.Parent = general.coregui().consoleGui.main.mainScroll
+    print.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    print.BackgroundTransparency = 1.000
+    print.Size = UDim2.new(0, 300, 0, 20)
+    print.Font = Enum.Font.SourceSans
+    print.TextColor3 = Color3.fromRGB(255, 255, 255)
+    print.TextSize = 14.000
+    print.TextXAlignment = Enum.TextXAlignment.Left
+    print.Text = "-- "..text
+end
+function console.warn(text)
+    local warn = Instance.new("TextLabel")
+    warn.Name = "warn"
+    warn.Parent = general.coregui().consoleGui.main.mainScroll
+    warn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    warn.BackgroundTransparency = 1.000
+    warn.Size = UDim2.new(0, 300, 0, 20)
+    warn.Font = Enum.Font.SourceSans
+    warn.TextColor3 = Color3.fromRGB(255, 170, 0)
+    warn.TextSize = 14.000
+    warn.TextXAlignment = Enum.TextXAlignment.Left
+    warn.Text = "-- "..text
+end
+function console.info(text)
+    local info = Instance.new("TextLabel")
+    info.Name = "info"
+    info.Parent = general.coregui().consoleGui.main.mainScroll
+    info.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    info.BackgroundTransparency = 1.000
+    info.Size = UDim2.new(0, 300, 0, 20)
+    info.Font = Enum.Font.SourceSans
+    info.TextColor3 = Color3.fromRGB(0, 170, 255)
+    info.TextSize = 14.000
+    info.TextXAlignment = Enum.TextXAlignment.Left
+    info.Text = "-- "..text
+end
+return console()
