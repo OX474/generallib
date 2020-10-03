@@ -13,6 +13,10 @@ function general.get_position(obj)
       return obj.Position
    end
 end
+function general.set_position(obj,position)
+obj.Position = position
+return position
+end
 function general.get_players()
    players = {}
    for i,v in pairs(game:GetService("Players"):GetPlayers())do
@@ -100,6 +104,7 @@ function general.get_descendants(obj)
   function general.commands()
      warn("check_property(<instance> path,<property> string)")
      warn("get_position(<instance> path)")
+     warn("set_position(<instance> path,<position> vector3")
      warn("get_players(nil)")
      warn("get_player_characters(nil)")
      warn("set_upvalue(<function> string, <index> int, <>)")
