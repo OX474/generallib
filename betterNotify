@@ -1,0 +1,35 @@
+notify = {}
+
+function notify:write(text,speed,time)
+    local typeWrite = Instance.new("ScreenGui")
+    local mainFrame = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local textLabel = Instance.new("TextLabel")
+    typeWrite.Name = "typeWrite"
+    typeWrite.Parent = game:GetService("CoreGui")
+    typeWrite.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    typeWrite.ResetOnSpawn = false
+    mainFrame.Name = "mainFrame"
+    mainFrame.Parent = typeWrite
+    mainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    mainFrame.Position = UDim2.new(0.5, -330, 0.5, -300)
+    mainFrame.Size = UDim2.new(0, 660, 0, 30)
+    UICorner.CornerRadius = UDim.new(0.100000001, 0)
+    UICorner.Parent = mainFrame
+    textLabel.Name = "textLabel"
+    textLabel.Parent = mainFrame
+    textLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel.BackgroundTransparency = 1.000
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.Text = "nil"
+    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel.TextSize = 14.000
+    for i = 1,#text,1 do
+       textLabel.Text = string.sub(text,1,i)
+       wait(speed)
+    end
+    wait(time)
+    typeWrite:Destroy()
+end
+return notify
